@@ -1,0 +1,74 @@
+---
+# Default variables
+# =================
+
+# .. contents:: Sections
+#    :local:
+#
+# .. Required packages (((
+#
+# ---------------------
+#   Required packages
+# ---------------------
+
+# .. envvar:: file_attributes__base_packages
+#
+# List of base packages to install.
+# ``e2fsprogs`` is needed because it contains the :command:`chattr` and :command:`lsattr`
+# programs.
+file_attributes__base_packages:
+  - 'e2fsprogs'
+
+# .. )))
+
+# .. Lists of files (((
+#
+# -------------------------
+#   Dictionaries of files
+# -------------------------
+# Dictionaries of files to set/unset file attributes for.
+#
+# When a file is defined in more then one variable, then only file attributes
+# from the most specific Ansible inventory group will be honored. All other
+# file attributes will simply be ignored.
+#
+# Order:
+# ``file_attributes__file_dict`` (least specific), ``file_attributes__file_dict_group``, ``file_attributes__file_dict_host`` (most specific)
+
+# .. envvar:: file_attributes__file_dict
+#
+# Global dictionary of files to set/unset file attributes for.
+#
+# Example::
+#
+#    file_attributes__file_dict:
+#
+#      ## Disable copy on write on a COW file system for the `/tmp/example` file.
+#      '/tmp/example_file': '+C'
+#
+#      ## Disable copy on write on a COW file system and make writes synchronous for the `/tmp/example` file.
+#      '/tmp/example_file':
+#        - '+C'
+#        - '+S'
+#
+#      ## Disable copy on write on a COW file system for the `/tmp/example`
+#      ## directory and all files and directories inside.
+#      '/tmp/example_dir/':
+#        - '-R'
+#        - '+C'
+#
+file_attributes__file_dict: {}
+
+
+# .. envvar:: file_attributes__file_dict_group
+#
+# Host group dictionary of files to set/unset file attributes for.
+file_attributes__file_dict_group: {}
+
+
+# .. envvar:: file_attributes__file_dict_host
+#
+# Host dictionary of files to set/unset file attributes for.
+file_attributes__file_dict_host: {}
+
+# .. )))

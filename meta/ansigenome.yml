@@ -1,0 +1,21 @@
+---
+
+ansigenome_info:
+  github_url: 'https://github.com/ypid/ansible-file_attributes'
+  git_branch: 'master'
+  galaxy_id: ''
+
+  # travis: True
+
+  license_url: 'https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)'
+
+  authors:
+    - name:  'Robin Schneider'
+      url: 'http://ypid.de/'
+      email: 'ypid@riseup.net'
+      twitter: 'ypid'
+      github: 'ypid'
+
+  synopsis: |
+    This role allows you to set/unset file attributes on a Linux file system
+    using the `chattr` command.

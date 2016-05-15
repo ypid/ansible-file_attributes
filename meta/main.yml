@@ -1,0 +1,30 @@
+---
+
+dependencies: []
+
+galaxy_info:
+
+  author: 'Robin Schneider'
+  description: 'Set file attributes, configurable via Ansible’s inventory.'
+  license: 'GPL-3.0'
+  min_ansible_version: '2.0.0'
+
+  platforms:
+
+    - name: Debian
+      versions:
+        - wheezy
+        - jessie
+
+    - name: Ubuntu
+      versions:
+        - precise
+        - quantal
+        - raring
+        - saucy
+        - trusty
+
+  galaxy_tags:
+    - attributes
+    - lsattr
+    - chattr

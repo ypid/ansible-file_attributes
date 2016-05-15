@@ -1,0 +1,19 @@
+---
+
+- name: Combine file dictionaries
+  set_fact:
+    file_attributes__file_dict_combined: '{{
+      file_attributes__file_dict
+        | combine(file_attributes__file_dict_group)
+        | combine(file_attributes__file_dict_host) }}'
+
+- name: Ensure required packages are installed
+  apt:
+    name: '{{ item }}'
+    state: 'latest'
+    install_recommends: False
+  with_flattened: '{{ file_attributes__base_packages }}'
+
+- name: Set file attribute for files
+  command: chattr {{ (item.value) if (item.value is string) else (item.value | join(" ")) }} "{{ item.key }}"
+  with_dict: '{{ file_attributes__file_dict_combined }}'
