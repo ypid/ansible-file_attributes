@@ -8,8 +8,8 @@ Getting started
 Example inventory
 -----------------
 
-To set/unset file attributes on host given in
-``ypid_service_file_attributes`` Ansible inventory group:
+To set/unset file attributes, add the hosts to the
+``ypid_service_file_attributes`` Ansible inventory host group:
 
 .. code:: ini
 
@@ -19,17 +19,11 @@ To set/unset file attributes on host given in
 Example playbook
 ----------------
 
-Here's an example playbook that can be used to manage file_attributes::
+Here's an example playbook that can be used to manage file attributes on a set
+of hosts:
 
-    ---
-    - name: Set file attributes, configurable via Ansible’s inventory
-      hosts: 'ypid_service_file_attributes'
-      become: True
-
-      roles:
-
-        - role: ypid.file_attributes
-          tags: [ 'role::file_attributes' ]
+.. literalinclude:: playbooks/file_attributes.yml
+   :language: yaml
 
 Ansible tags
 ------------
